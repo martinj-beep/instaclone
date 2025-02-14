@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
 
+  before_action :authenticate_user!, except: [ :index, :show ]
+
   # GET /posts or /posts.json
   def index
     @posts = Post.all
@@ -8,6 +10,11 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
+    @comment = @post.comments.build
+  end
+
+  def myposts
+    @posts = Post.all
   end
 
   # GET /posts/new
@@ -65,6 +72,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.expect(post: [ :title, :description, :keywords, images: [] ])
+      params.expect(post: [ :title, :description, :keywords, :user_id, images: [] ])
     end
 end
