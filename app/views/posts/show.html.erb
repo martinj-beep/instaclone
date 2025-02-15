@@ -9,4 +9,8 @@
   </div>
 <% end %>
 
-<%= render "comments/form" %>
+<%= render "comments/form", comment: @comment %>
+<%- @post.comments.each do |comment| %>
+<%= comment.text %>
+<br>
+<% end %>

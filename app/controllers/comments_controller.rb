@@ -44,5 +44,3 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:text)  # Permit only the text parameter for the comment
   end
 end
-
-1:28:33
