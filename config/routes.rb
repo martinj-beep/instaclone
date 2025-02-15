@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  # get "likes/create"
+  # get "likes/destroy"
+  # get "likes/like_params"
+  resources :likes, only: [ :create, :destroy ]
+  resources :comments
+
+
   devise_scope :user do
     get "/users", to: "devise/registrations#new"
     get "/users/password", to: "devise/passwords#new"
