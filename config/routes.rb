@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "profiles/index"
   # get "likes/create"
   # get "likes/destroy"
   # get "likes/like_params"
