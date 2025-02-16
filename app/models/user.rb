@@ -46,6 +46,7 @@ class User < ApplicationRecord
     end while User.where(id: self.id).exists?
   end
 
+  # 2:19
   # for admin functionality
   # enum role: { user: 0, admin: 1 }
   # after_initialize :set_default_role, if: :new_record?
